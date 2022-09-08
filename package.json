@@ -1,0 +1,29 @@
+{
+  "name": "cinemaprojet",
+  "version": "1.0.0",
+  "description": "Projet individuel cinema",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExiaEarth/cinemaBackProjet.git"
+  },
+  "author": "Marc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ExiaEarth/cinemaBackProjet/issues"
+  },
+  "homepage": "https://github.com/ExiaEarth/cinemaBackProjet#readme",
+  "dependencies": {
+    "argon2": "^0.29.1",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.5",
+    "nodemon": "^2.0.19",
+    "yup": "^0.32.11"
+  }
+}
