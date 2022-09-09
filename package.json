@@ -18,6 +18,7 @@
   "homepage": "https://github.com/ExiaEarth/cinemaBackProjet#readme",
   "dependencies": {
     "argon2": "^0.29.1",
+    "cors": "^2.8.5",
     "dotenv-flow": "^3.2.0",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
