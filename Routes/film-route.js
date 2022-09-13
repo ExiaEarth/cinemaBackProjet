@@ -6,7 +6,7 @@ const filmRouter=require('express').Router();
 
 filmRouter.route('/')
     .get(filmControlleur.getAll)
-    .post(bodyValidation(filmValidateur),filmControlleur.create)
+    .post(bodyValidation(filmValidateur),filmControlleur.creat)
 filmRouter.route('/:id')
     .get(filmControlleur.getById)
     .put(bodyValidation(filmValidateur),filmControlleur.update)

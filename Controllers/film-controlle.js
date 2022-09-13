@@ -25,7 +25,7 @@ const filmControlleur={
             return res.sendStatus(404);
         }
     },
-    create:async(req,res)=>{
+    creat:async(req,res)=>{
         const filmAdd=Film(req.body);
         await filmAdd.save();
         res.status(200).json(filmAdd);
@@ -49,6 +49,7 @@ const filmControlleur={
             return res.sendStatus(404)
         }
     },
+
 }
 
 module.exports=filmControlleur;

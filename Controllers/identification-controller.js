@@ -23,7 +23,7 @@ const identificationController={
         if (!verifierPassword){return res.status(401).json({error:'non autorisée'}) //401 -> Unauthorized -> Pas les bonnes infos de login
         }
 
-        const token=await tokenUtils.generate(user);
+        // const token=await tokenUtils.generate(user);
         // return res.status(200).json({token});
         res.status(200).json(user)
 
