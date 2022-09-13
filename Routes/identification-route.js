@@ -7,6 +7,7 @@ const {registerValid,logValidator}=require('../Validateur/identifiaction-validat
 const identifianRouter=require('express').Router();
 
 identifianRouter.route('/register').post(bodyValidation(registerValid),identificationController.register)
-identifianRouter.route("/login").post(bodyValidation(logValidator),identificationController.login)
+
+identifianRouter.route('/login').post(bodyValidation(logValidator),identificationController.login)
 
 module.exports=identifianRouter;

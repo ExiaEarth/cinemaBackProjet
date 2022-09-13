@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema,model } = require("mongoose");
 
 
 const schemaDefaut=new Schema({
@@ -13,4 +13,5 @@ const schemaDefaut=new Schema({
     timestamps:true
 });
 const User=model('User',schemaDefaut);
+
 module.exports=User;

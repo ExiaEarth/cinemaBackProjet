@@ -9,7 +9,7 @@ const mongoose=require('mongoose');
 const app=express();
 app.use(cors());
 
-// const router=require('./routes');
+const router=require('./Routes/index-route');
 
 app.use(async(req,res,next)=>{await mongoose.connect(DB_CONNECTION)
     console.log('connection réussie !!!!!!')
@@ -17,6 +17,6 @@ app.use(async(req,res,next)=>{await mongoose.connect(DB_CONNECTION)
 });
 
 app.use(express.json());
-// app.use('/api',router);
+app.use('/api',router);
 app.listen(PORT,()=>{console.log(`Le serveur est sur le port: ${PORT}`);}
     );

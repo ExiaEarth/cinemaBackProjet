@@ -16,7 +16,7 @@ const identificationController={
 
         const user = await User.findOne(identifiantFilter);//vérifie si on a récupérer un utilisateur
 
-        if (!user) {return res.status(401).json({error:'non autorisée'}) //401 -> Unauthorized -> Pas les bonnes infos de login
+        if (!user) {return res.status(401).json({error:'bad credential'}) //401 -> Unauthorized -> Pas les bonnes infos de login
         }
         const verifierPassword=await argon2.verify(user.password,password)
 
@@ -40,7 +40,7 @@ const identificationController={
         
         // const token=await tokenUtils.generate(insertUser);
         // res.status(200).json({token});
-        res.status(200).json(user)
+        res.status(200).json(User)
 
 
     }
