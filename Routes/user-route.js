@@ -7,10 +7,11 @@ const userRouter=require('express').Router();
 
 
 
-userRouter.route('/').get(userController.getAll);
-
-userRouter.route('/:id').get(idValidateur(),userController.getById)
-    .put(bodyValidation(userValidateur),userController.update)
+userRouter.route('/')
+    .get(userController.getAll);
+userRouter.route('/:id')
+    .get(idValidateur(),userController.getById)
+    .put(idValidateur(),bodyValidation(userValidateur),userController.update)
     .delete(idValidateur(),userController.delete)
 
 module.exports=userRouter;

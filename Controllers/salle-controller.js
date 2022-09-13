@@ -1,4 +1,3 @@
-
 const Salle=require('../Models/salle-model');
 
 const salleController={
@@ -12,7 +11,7 @@ const salleController={
 
         res.status(200).json(data)
     },
-    gelById:async(req,res)=>{
+    getById:async(req,res)=>{
         const id=req.params.id;
 
         const salle=await Salle.findById(id);

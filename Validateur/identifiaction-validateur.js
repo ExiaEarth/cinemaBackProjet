@@ -11,7 +11,7 @@ const registerValid=yup.object({
     email:yup.string().trim().required().max(255),
 });
 const logValidator=yup.object({
-    identifian : yup.string().trim().required().max(255),
+    identifiant : yup.string().trim().required().max(255),
     password : yup.string().required()
 });
 

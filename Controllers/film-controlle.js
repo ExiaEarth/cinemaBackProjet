@@ -2,25 +2,28 @@ const Film=require('../Models/film-model')
 
 const filmControlleur={
     getAll:async(req,res)=>{
-        let filmFiltre;
-        const film=req.query.hotel;
-        if (film) {
-            filmFiltre={'film':film}
-        } else {
-            film={};
-        }
+        // let filmFiltre;
+        // const film=req.query.film;
+        // if (film) {
+        //     filmFiltre={'film':film}
+        // } else {
+        //     film={};
+        // }
 
-        const minimun=req.query.minimun?req.query.minimun:0;
-        const maximal=req.query.maximal?req.query.maximal:10;
-        const films=await Film.find(filmFiltre).limit(maximal).skip(minimun)
-        const data={'film':film}
-        res.status(200).json(data);
+        // const minimun=req.query.minimun?req.query.minimun:0;
+        // const maximal=req.query.maximal?req.query.maximal:10;
+        // const films=await Film.find(filmFiltre).limit(maximal).skip(minimun)
+        // const data={'film':films}
+        // res.status(200).json(data);
+
+        const films=await Film.find();
+        res.status(200).json(films)
     },
     getById:async(req,res)=>{
         const id=req.params.id;
-        const films=await Film.findById(id);
-        if (films) {
-            res.status(200).json(films);
+        const film=await Film.findById(id);
+        if (film) {
+            res.status(200).json(film);
         } else {
             return res.sendStatus(404);
         }

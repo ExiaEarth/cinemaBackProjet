@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 const idValidateur=()=>{
     return(req,res,next)=>{
-        const id=req.parems.id;
+        const id=req.params.id;
 
         if (!mongoose.isValidObjectId(id)) {
             res.sendStatus(400)

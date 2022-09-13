@@ -16,7 +16,7 @@ const userController={
     },
     getById:async(req,res)=>{
 
-        const id=req.param.id;
+        const id=req.params.id;
 
         const user=await User.findById(id);
           
@@ -27,7 +27,6 @@ const userController={
         const userDTO=userMapper(user);
 
         res.status(200).json(userDTO);
-
     },
     update:async(req,res)=>{
         const id=req.params.id;
