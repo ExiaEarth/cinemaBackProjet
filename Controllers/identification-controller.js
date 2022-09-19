@@ -35,7 +35,13 @@ const identificationController={
         const hashPasword=await argon2.hash(password);
         // un nouvel utilisateur à partir des infos sur req.body
 
-        const insertUser=User({pseudo, prenom,nom,email,password:hashPasword,});
+        const insertUser=User({pseudo,
+            prenom,
+            nom,
+            email,
+            password:hashPasword,
+            avatar: `http://localhost:8080/avatars/${req.file.filename}`
+            });
         await insertUser.save();
         
         // const token=await tokenUtils.generate(insertUser);
