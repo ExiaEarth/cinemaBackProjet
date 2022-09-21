@@ -30,23 +30,24 @@ const identificationController={
     },
     register:async(req,res)=>{ 
         
-        const {pseudo,prenom, nom,email,password,}=req.body;
+        const {pseudo,prenom, nom,email,password,avatar}=req.body;
         
         const hashPasword=await argon2.hash(password);
         // un nouvel utilisateur à partir des infos sur req.body
 
-        const insertUser=User({pseudo,
+        const insertUser=User({
+            pseudo,
             prenom,
             nom,
             email,
             password:hashPasword,
-            avatar: `http://localhost:8080/avatars/${req.file.filename}`
+            // avatar: `http://localhost:8080/avatars/${req.file.filename}`
             });
         await insertUser.save();
         
         // const token=await tokenUtils.generate(insertUser);
         // res.status(200).json({token});
-        res.status(200).json(User)
+        res.status(200).json(insertUser)
 
 
     }

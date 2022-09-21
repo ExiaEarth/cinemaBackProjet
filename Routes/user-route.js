@@ -22,7 +22,7 @@ const upload=multer({storage});
 
 userRouter.route('/')
     .get(userController.getAll);
-    .post(upload.single('avatar'),identificationController.register)
+    // .post(upload.single('avatar'),identificationController.register)
 userRouter.route('/:id')
     .get(idValidateur(),userController.getById)
     .put(idValidateur(),bodyValidation(userValidateur),userController.update)

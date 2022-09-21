@@ -8,7 +8,7 @@ require('express-async-errors');
 const mongoose=require('mongoose');
 const app=express();
 app.use(cors());
-
+app.use(express.static('public'));
 const router=require('./Routes/index-route');
 
 app.use(async(req,res,next)=>{await mongoose.connect(DB_CONNECTION)

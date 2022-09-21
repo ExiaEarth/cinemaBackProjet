@@ -29,8 +29,8 @@ const salleController={
     },
     update:async(req,res)=>{
         const id=req.params.id;
-        const{nom,place}=req.body;
-        const salle=await Salle.findByIdAndUpdate(id, {nom,place},{returnDocument:'after'});
+        const{nom,place,image,information}=req.body;
+        const salle=await Salle.findByIdAndUpdate(id, {nom,place,image,information},{returnDocument:'after'});
         if (salle) {
             res.status(200).json(salle);
         } else {
