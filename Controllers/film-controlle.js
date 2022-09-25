@@ -1,24 +1,12 @@
 const Film=require('../Models/film-model')
 
 const filmControlleur={
+    // Vas rechercher tout les films de la Bd
     getAll:async(req,res)=>{
-        // let filmFiltre;
-        // const film=req.query.film;
-        // if (film) {
-        //     filmFiltre={'film':film}
-        // } else {
-        //     film={};
-        // }
-
-        // const minimun=req.query.minimun?req.query.minimun:0;
-        // const maximal=req.query.maximal?req.query.maximal:10;
-        // const films=await Film.find(filmFiltre).limit(maximal).skip(minimun)
-        // const data={'film':films}
-        // res.status(200).json(data);
-
         const films=await Film.find();
         res.status(200).json(films)
     },
+    // Vas rechercher tout un films de la Bd par sont Id
     getById:async(req,res)=>{
         const id=req.params.id;
         const film=await Film.findById(id);
@@ -28,11 +16,13 @@ const filmControlleur={
             return res.sendStatus(404);
         }
     },
+    // Vas crée un films de la Bd
     creat:async(req,res)=>{
         const filmAdd=Film(req.body);
         await filmAdd.save();
         res.status(200).json(filmAdd);
     },
+    // Vas mettre a jour un film de la Bd par son Id
     update:async(req,res)=>{
         const id=req.params.id;
         const {nom,images,information}=req.body;
@@ -43,6 +33,7 @@ const filmControlleur={
             return res.sendStatus(404);
         }
     },
+    // Vas supprimée un films de la Bd par son Id
     delete:async(req,res)=>{
         const id=req.query.id;
         const filmDelete=await Film.findByIdAndDelete(id);
@@ -52,7 +43,5 @@ const filmControlleur={
             return res.sendStatus(404)
         }
     },
-
 }
-
 module.exports=filmControlleur;

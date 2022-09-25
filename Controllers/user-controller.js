@@ -3,9 +3,10 @@ const User = require("../Models/user.model");
 
 
 
-const userMapper=user=> new UserDTO(user.id,user.pseudo,user.prenom,user.nom,user.mail,user.password,user.avatar);
+const userMapper=user=> new UserDTO(user.id,user.pseudo,user.prenom,user.nom,user.mail,user.password);
 
 const userController={
+    // Vas rechercher tout les utilisateurs de la Bd
     getAll:async(req,res)=>{
 
         const users=await User.find();
@@ -14,8 +15,9 @@ const userController={
         
         res.status(200).json(userDTO);
     },
+    // Vas rechercher un utilisateurs de la Bd par son Id
     getById:async(req,res)=>{
-
+        
         const id=req.params.id;
 
         const user=await User.findById(id);
@@ -31,7 +33,7 @@ const userController={
     update:async(req,res)=>{
         const id=req.params.id;
 
-        const {pseudo,prenom,nom,email,}=req.body
+        const {pseudo,prenom,nom,email}=req.body
         //la fonction qui permet de trouver l'élément via son id et de le modifier
         const userUpdated=await User.findByIdAndUpdate(id,{pseudo,prenom,nom,email},{returnDocument:'after'});
 

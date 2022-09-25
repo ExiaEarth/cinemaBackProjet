@@ -34,6 +34,7 @@ const identificationController={
         
         const hashPasword=await argon2.hash(password);
         // un nouvel utilisateur à partir des infos sur req.body
+        console.log('fichier inserer dans back',req.file);
 
         const insertUser=User({
             pseudo,
@@ -41,7 +42,8 @@ const identificationController={
             nom,
             email,
             password:hashPasword,
-            // avatar: `http://localhost:8080/avatars/${req.file.filename}`
+            avatar,
+            // avatar :`http://localhost:8100/Avatar/${req.file.filename}`
             });
         await insertUser.save();
         
