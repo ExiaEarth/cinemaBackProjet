@@ -3,7 +3,7 @@ const User = require("../Models/user.model");
 
 
 
-const userMapper=user=> new UserDTO(user.id,user.pseudo,user.prenom,user.nom,user.mail,user.password);
+const userMapper=user=> new UserDTO(user.id,user.pseudo,user.prenom,user.nom,user.mail,user.password,user.avatar,user.role);
 
 const userController={
     // Vas rechercher tout les utilisateurs de la Bd
